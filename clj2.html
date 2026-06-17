@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chandralekha Jewellers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root,
+        [data-theme="light"] {
+            --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+            --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+            --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+            --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+            --space-1: .25rem;
+            --space-2: .5rem;
+            --space-3: .75rem;
+            --space-4: 1rem;
+            --space-5: 1.25rem;
+            --space-6: 1.5rem;
+            --space-8: 2rem;
+            --space-10: 2.5rem;
+            --space-12: 3rem;
+            --space-16: 4rem;
+            --space-20: 5rem;
+            --space-24: 6rem;
+            --color-bg: #fbf7f1;
+            --color-surface: #fffdfa;
+            --color-surface-2: #f7f0e7;
+            --color-surface-offset: #efe4d5;
+            --color-border: rgba(124, 95, 48, .18);
+            --color-divider: rgba(124, 95, 48, .12);
+            --color-text: #45311c;
+            --color-text-muted: #75614a;
+            --color-text-faint: #9d8b75;
+            --color-text-inverse: #fff8ef;
+            --color-primary: #b78a36;
+            --color-primary-hover: #9f7428;
+            --color-primary-active: #86601f;
+            --color-primary-highlight: #f2e0be;
+            --radius-sm: .375rem;
+            --radius-md: .625rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
+            --radius-full: 999px;
+            --shadow-sm: 0 2px 10px rgba(65, 42, 12, .05);
+            --shadow-md: 0 10px 30px rgba(65, 42, 12, .10);
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Manrope', sans-serif;
+            --content-default: 1180px;
+            --transition: 180ms cubic-bezier(.16, 1, .3, 1);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            color: var(--color-text);
+            background: linear-gradient(180deg, #fffdfa 0%, #fbf6ef 100%);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img,
+        svg {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            text-wrap: balance;
+            line-height: 1.1;
+        }
+
+        p,
+        li {
+            text-wrap: pretty;
+        }
+
+        .skip-link {
+            position: absolute;
+            left: 12px;
+            top: -48px;
+            background: var(--color-primary);
+            color: #fff;
+            padding: 10px 14px;
+            z-index: 2000;
+            border-radius: var(--radius-sm);
+        }
+
+        .skip-link:focus {
+            top: 12px;
+        }
+
+        .container {
+            width: min(calc(100% - 32px), var(--content-default));
+            margin: 0 auto;
+        }
+
+        /* ─── ORNAMENT ─── */
+        .divider-title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .divider-title h2 {
+            margin: 0;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(1.6rem, 1.1rem + 1.1vw, 2.5rem);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: #6d512d;
+        }
+
+        .ornament,
+        .mini-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 84px;
+            height: 14px;
+        }
+
+        .ornament::before,
+        .ornament::after,
+        .mini-ornament::before,
+        .mini-ornament::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: rgba(151, 120, 72, .55);
+        }
+
+        .ornament .dot,
+        .mini-ornament .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 1px solid rgba(151, 120, 72, .5);
+            background: radial-gradient(circle, #fff 0%, #f1e1c9 50%, rgba(183, 138, 54, .3) 100%);
+            flex: 0 0 10px;
+        }
+
+        /* ─── BUTTONS ─── */
+        .btn-primary,
+        .btn-secondary,
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 48px;
+            padding: 0 24px;
+            font-size: .8rem;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            transition: background var(--transition), color var(--transition), border-color var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(180deg, #c69b47 0%, #b4832c 100%);
+            color: #fff;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(180deg, #bb8d39 0%, #9f7428 100%);
+        }
+
+        .btn-secondary,
+        .btn-ghost {
+            background: rgba(255, 255, 255, .72);
+            border-color: rgba(148, 117, 70, .34);
+            color: #6c5130;
+        }
+
+        .btn-secondary:hover,
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, .95);
+        }
+
+        .icon-sq {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border: 1px solid currentColor;
+            font-size: .7rem;
+            flex: 0 0 18px;
+        }
+
+        /* ─── HEADER ─── */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 252, 247, .94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(166, 136, 91, .09);
+        }
+
+        .header-row {
+            display: grid;
+            grid-template-columns: 220px 1fr auto;
+            align-items: center;
+            gap: 16px;
+            min-height: 88px;
+        }
+
+        .logo {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: flex-start;
+            color: #9b7024;
+            line-height: 1;
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 26px;
+            margin-bottom: 5px;
+        }
+
+        .logo-name {
+            font-size: 1.82rem;
+            letter-spacing: .04em;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: var(--font-display);
+        }
+
+        .logo-tag {
+            letter-spacing: .5em;
+            font-size: .67rem;
+            text-transform: uppercase;
+            margin-top: 3px;
+            margin-left: 2px;
+            font-weight: 700;
+            color: #7b6039;
+        }
+
+        .logo-since {
+            font-size: .55rem;
+            letter-spacing: .16em;
+            margin-top: 6px;
+            color: #b88e48;
+            text-transform: uppercase;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: center;
+            gap: clamp(12px, 2vw, 30px);
+            flex-wrap: wrap;
+        }
+
+        .main-nav a {
+            position: relative;
+            font-size: .82rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: #5d4930;
+            padding: 10px 0;
+            transition: color var(--transition);
+        }
+
+        .main-nav a.active,
+        .main-nav a:hover {
+            color: var(--color-primary);
+        }
+
+        .main-nav a.active::after,
+        .main-nav a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 4px;
+            height: 1px;
+            background: var(--color-primary);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 78% 24%, rgba(222, 182, 110, .38), transparent 23%),
+                radial-gradient(circle at 66% 40%, rgba(219, 188, 133, .32), transparent 19%),
+                linear-gradient(90deg, #fffdf9 0%, #fffaf4 43%, #f7ecd9 60%, #f0ddbf 100%);
+            border-bottom: 1px solid rgba(166, 136, 91, .12);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: .94fr 1.06fr;
+            align-items: center;
+            min-height: 655px;
+        }
+
+        .hero-copy {
+            padding: 86px 20px 62px 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .eyebrow {
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: .16em;
+            color: #877059;
+            margin-bottom: 18px;
+        }
+
+        .hero-copy h1 {
+            margin: 0;
+            max-width: 540px;
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 2.1rem + 2.8vw, 5rem);
+            font-weight: 500;
+            line-height: .98;
+            color: #6f5228;
+        }
+
+        .hero-copy .mini-ornament {
+            margin: 26px 0 22px;
+        }
+
+        .hero-copy p {
+            max-width: 500px;
+            margin: 0 0 28px;
+            color: #6f5a42;
+            font-size: 1.02rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 36px 0 24px;
+        }
+
+        .hero-scene {
+            position: relative;
+            width: 100%;
+            min-height: 560px;
+            overflow: hidden;
+        }
+
+        /* Fabric / pedestal decorative shapes */
+        .fabric {
+            position: absolute;
+            right: 28px;
+            top: 50px;
+            width: min(92%, 760px);
+            height: 500px;
+            background: radial-gradient(circle at 35% 20%, rgba(255, 255, 255, .95) 0%, rgba(249, 241, 228, .98) 38%, rgba(238, 223, 195, .95) 66%, rgba(210, 184, 136, .48) 100%);
+            border-radius: 42% 58% 35% 65%/38% 33% 67% 62%;
+            filter: drop-shadow(0 28px 48px rgba(112, 85, 43, .12));
+            transform: rotate(-6deg);
+        }
+
+        .fabric::before {
+            content: "";
+            position: absolute;
+            inset: 40px 70px 80px 90px;
+            border-radius: 58% 42% 62% 38%/39% 53% 47% 61%;
+            background: radial-gradient(circle at 48% 42%, rgba(255, 255, 255, .94), rgba(239, 227, 210, .95) 72%, rgba(211, 188, 146, .45));
+        }
+
+        .pedestal {
+            position: absolute;
+            right: 42px;
+            bottom: 18px;
+            width: min(75%, 560px);
+            height: 120px;
+            border-radius: 14px 14px 0 0;
+            background: linear-gradient(180deg, #efe4d3 0%, #ddc6a7 100%);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .5), 0 -18px 40px rgba(145, 107, 54, .10);
+        }
+
+        .pedestal::before {
+            content: "";
+            position: absolute;
+            inset: 18px 20px auto 20px;
+            height: 78px;
+            border-radius: 12px 12px 0 0;
+            background: linear-gradient(135deg, rgba(192, 160, 116, .17) 25%, transparent 25%) 0 0/26px 26px,
+                linear-gradient(225deg, rgba(192, 160, 116, .12) 25%, transparent 25%) 0 0/26px 26px,
+                linear-gradient(180deg, #f6ebdc 0%, #ead9bf 100%);
+            opacity: .85;
+        }
+
+        .sparkles {
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            left: 54px;
+            top: 70px;
+            opacity: .45;
+            background:
+                radial-gradient(circle at 48% 18%, rgba(215, 170, 95, .6) 0 5px, transparent 6px),
+                radial-gradient(circle at 30% 34%, rgba(215, 170, 95, .45) 0 7px, transparent 8px),
+                radial-gradient(circle at 58% 42%, rgba(215, 170, 95, .42) 0 6px, transparent 7px),
+                radial-gradient(circle at 44% 58%, rgba(215, 170, 95, .38) 0 10px, transparent 11px),
+                radial-gradient(circle at 70% 66%, rgba(215, 170, 95, .38) 0 8px, transparent 9px),
+                radial-gradient(circle at 23% 74%, rgba(215, 170, 95, .32) 0 12px, transparent 13px);
+            filter: blur(1px);
+        }
+
+        /* Image placeholder boxes */
+        .ph {
+            position: absolute;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            font-family: var(--font-display);
+            letter-spacing: .03em;
+        }
+
+        .ph-label {
+            padding: 10px 14px;
+            border: 1px dashed rgba(255, 248, 227, .72);
+            background: rgba(95, 61, 17, .18);
+            color: rgba(255, 248, 236, .95);
+            font-size: 1.25rem;
+            line-height: 1.15;
+        }
+
+        .hero-ph {
+            right: 66px;
+            top: 104px;
+            width: min(78%, 640px);
+            height: 290px;
+            border-radius: 48% 52% 55% 45%/34% 34% 66% 66%;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 213, 132, .95), rgba(195, 134, 35, .98) 46%, rgba(111, 72, 12, .94) 100%);
+            box-shadow: 0 18px 30px rgba(118, 80, 20, .18), inset 0 2px 12px rgba(255, 255, 255, .25);
+        }
+
+        .hero-ph .ph-label {
+            font-size: clamp(1.3rem, 1rem + 1vw, 2rem);
+            max-width: 320px;
+        }
+
+        /* ─── TRUST BAR ─── */
+        .trust-bar {
+            background: #fffdf9;
+            border-top: 1px solid rgba(172, 139, 92, .12);
+            border-bottom: 1px solid rgba(172, 139, 92, .12);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+        }
+
+        .trust-item {
+            min-height: 108px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 16px;
+            border-right: 1px solid rgba(172, 139, 92, .18);
+        }
+
+        .trust-item:last-child {
+            border-right: none;
+        }
+
+        .t-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 1px solid rgba(172, 139, 92, .28);
+            display: grid;
+            place-items: center;
+            color: #b28639;
+            font-size: 1.1rem;
+            flex: 0 0 46px;
+            background: linear-gradient(180deg, #fffaf3 0%, #f7eddc 100%);
+        }
+
+        .trust-item strong {
+            display: block;
+            font-size: .8rem;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: #7a5d34;
+            line-height: 1.4;
+        }
+
+        .trust-item span {
+            font-size: .76rem;
+            color: #8b7458;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+
+        /* ─── HERITAGE ─── */
+        .heritage {
+            padding: 22px 0 12px;
+            background: linear-gradient(180deg, rgba(255, 253, 249, .96), rgba(251, 246, 239, .95));
+        }
+
+        .heritage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 34px;
+            align-items: stretch;
+        }
+
+        .store-img {
+            min-height: 352px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(119, 88, 43, .18), rgba(78, 56, 27, .20)),
+                linear-gradient(135deg, #b58b4f 0%, #f1dfc5 34%, #9c7440 68%, #6d512d 100%);
+        }
+
+        .store-img::before {
+            content: "";
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(255, 248, 234, .25);
+        }
+
+        .store-img .grid-overlay {
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(90deg, transparent 0 73px, rgba(255, 248, 236, .16) 73px 76px),
+                repeating-linear-gradient(0deg, transparent 0 94px, rgba(255, 248, 236, .12) 94px 97px);
+        }
+
+        .img-tag {
+            position: absolute;
+            left: 26px;
+            bottom: 30px;
+            background: rgba(255, 250, 241, .9);
+            color: #6a4e28;
+            padding: 10px 14px;
+            font-size: .82rem;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        .heritage-copy {
+            background: rgba(255, 252, 247, .88);
+            padding: 44px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .heritage-copy .eyebrow {
+            margin-bottom: 10px;
+        }
+
+        .heritage-copy h2 {
+            margin: 0 0 18px;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(2.2rem, 1.6rem + 1.4vw, 3.3rem);
+            line-height: 1.02;
+            color: #6e522d;
+        }
+
+        .heritage-copy p {
+            margin: 0 0 14px;
+            color: #67543f;
+            max-width: 470px;
+        }
+
+        .script {
+            margin: 6px 0 26px;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.28rem;
+            color: #9a7b4e;
+        }
+
+        /* ─── COLLECTIONS ─── */
+        .collections {
+            padding: 8px 0 20px;
+        }
+
+        .coll-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .coll-card {
+            position: relative;
+            min-height: 258px;
+            overflow: hidden;
+            background: linear-gradient(145deg, #b17f3b 0%, #f0dfbf 45%, #96703d 100%);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .coll-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(41, 22, 3, .58) 100%);
+        }
+
+        .coll-card .tex {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(255, 235, 194, .34) 0 16%, transparent 17%),
+                radial-gradient(circle at 70% 38%, rgba(125, 72, 12, .24) 0 18%, transparent 19%),
+                radial-gradient(circle at 42% 74%, rgba(255, 222, 164, .28) 0 18%, transparent 19%);
+        }
+
+        .coll-ph {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: rgba(255, 248, 236, .9);
+            font-family: var(--font-display);
+            text-align: center;
+            padding: 18px;
+        }
+
+        .coll-ph span {
+            padding: 9px 12px;
+            border: 1px dashed rgba(255, 248, 227, .65);
+            background: rgba(80, 44, 6, .16);
+            font-size: 1.22rem;
+            line-height: 1.1;
+        }
+
+        .coll-name {
+            position: absolute;
+            left: 18px;
+            bottom: 18px;
+            z-index: 1;
+            color: #fff5e7;
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 1.1rem + .9vw, 2rem);
+            line-height: .96;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            max-width: 160px;
+        }
+
+        /* ─── WHY US ─── */
+        .why-us {
+            padding: 8px 0 20px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 1px solid rgba(172, 139, 92, .12);
+            background: rgba(255, 252, 247, .72);
+        }
+
+        .feat-card {
+            padding: 28px 24px 24px;
+            border-right: 1px solid rgba(172, 139, 92, .14);
+        }
+
+        .feat-card:last-child {
+            border-right: none;
+        }
+
+        .f-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid rgba(172, 139, 92, .28);
+            display: grid;
+            place-items: center;
+            color: #b28639;
+            font-size: 1rem;
+            margin-bottom: 14px;
+            background: linear-gradient(180deg, #fffaf3 0%, #f7eddc 100%);
+        }
+
+        .feat-card strong {
+            display: block;
+            font-size: .8rem;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: #7a5d34;
+        }
+
+        .feat-card p {
+            margin: 8px 0 0;
+            font-size: .9rem;
+            color: #6d593f;
+            max-width: 230px;
+        }
+
+        /* ─── RING FEATURE ─── */
+        .ring-section {
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0 22px;
+            background: radial-gradient(circle at 86% 32%, rgba(227, 193, 131, .42), transparent 18%),
+                radial-gradient(circle at 93% 54%, rgba(221, 188, 127, .32), transparent 20%),
+                linear-gradient(90deg, #f8f3eb 0%, #faf7f0 43%, #f2e6d0 100%);
+            border-top: 1px solid rgba(172, 139, 92, .10);
+            border-bottom: 1px solid rgba(172, 139, 92, .10);
+        }
+
+        .ring-grid {
+            display: grid;
+            grid-template-columns: .45fr .55fr;
+            align-items: center;
+            min-height: 350px;
+        }
+
+        .ring-copy {
+            padding: 34px 16px 34px 8px;
+        }
+
+        .ring-copy h2 {
+            margin: 0 0 18px;
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 1.65rem + 1.5vw, 3.1rem);
+            line-height: .96;
+            font-weight: 500;
+            color: #6d512d;
+            text-transform: uppercase;
+        }
+
+        .details {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+            display: grid;
+            gap: 8px;
+        }
+
+        .details li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #6d5a44;
+            font-size: .97rem;
+        }
+
+        .details .bull {
+            color: #b78a36;
+            font-size: .9rem;
+            width: 14px;
+            text-align: center;
+        }
+
+        .ring-visual {
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .ring-box {
+            position: absolute;
+            width: min(62%, 340px);
+            aspect-ratio: 1/1;
+            border-radius: 42px 42px 80px 80px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .96), rgba(238, 230, 217, .94));
+            border: 10px solid rgba(198, 204, 208, .65);
+            box-shadow: 0 20px 30px rgba(102, 79, 50, .14);
+        }
+
+        .ring-box::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: -24px;
+            transform: translateX(-50%);
+            width: 76px;
+            height: 32px;
+            border-radius: 12px 12px 2px 2px;
+            background: linear-gradient(180deg, #9c9997, #6d6967);
+            box-shadow: 0 2px 0 rgba(255, 255, 255, .3) inset;
+        }
+
+        .ring-spk {
+            position: absolute;
+            right: 18px;
+            top: 20px;
+            width: 180px;
+            height: 250px;
+            opacity: .5;
+            background:
+                radial-gradient(circle at 24% 12%, rgba(218, 182, 113, .45) 0 10px, transparent 11px),
+                radial-gradient(circle at 54% 30%, rgba(218, 182, 113, .35) 0 8px, transparent 9px),
+                radial-gradient(circle at 78% 48%, rgba(218, 182, 113, .30) 0 12px, transparent 13px),
+                radial-gradient(circle at 34% 60%, rgba(218, 182, 113, .28) 0 8px, transparent 9px),
+                radial-gradient(circle at 16% 78%, rgba(218, 182, 113, .34) 0 12px, transparent 13px);
+            filter: blur(1px);
+        }
+
+        .ring-ph {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: min(74%, 320px);
+            text-align: center;
+            padding: 10px 14px;
+            border: 1px dashed rgba(184, 142, 72, .65);
+            background: rgba(255, 251, 245, .78);
+            color: #754f1a;
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            line-height: 1.1;
+        }
+
+        /* ─── TESTIMONIALS ─── */
+        .testimonials {
+            padding: 6px 0 20px;
+        }
+
+        .testi-wrap {
+            display: grid;
+            grid-template-columns: 48px 1fr 48px;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-arr {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgba(168, 138, 89, .28);
+            color: #b48635;
+            display: grid;
+            place-items: center;
+            background: rgba(255, 255, 255, .8);
+            justify-self: center;
+            font-size: 1.3rem;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .testi-card {
+            background: rgba(255, 255, 255, .64);
+            padding: 28px 22px;
+            text-align: center;
+            box-shadow: inset 0 0 0 1px rgba(172, 139, 92, .08);
+        }
+
+        .stars {
+            color: #b7893c;
+            letter-spacing: .22em;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        .testi-card p {
+            margin: 0 0 14px;
+            font-family: var(--font-display);
+            font-size: 1.38rem;
+            line-height: 1.12;
+            color: #6d522d;
+            font-style: italic;
+        }
+
+        .testi-card small {
+            color: #7d6850;
+            font-size: .92rem;
+        }
+
+        /* ─── VISIT ─── */
+        .visit-section {
+            overflow: hidden;
+            margin-bottom: 18px;
+            background: linear-gradient(90deg, #f4ecdf 0%, #f8f2e9 30%, #efdfc2 100%);
+            border-top: 1px solid rgba(172, 139, 92, .10);
+            border-bottom: 1px solid rgba(172, 139, 92, .10);
+        }
+
+        .visit-grid {
+            display: grid;
+            grid-template-columns: .42fr .58fr;
+            min-height: 290px;
+        }
+
+        .visit-copy {
+            padding: 44px 12px 40px 4px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .visit-copy h2 {
+            margin: 0 0 14px;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(2rem, 1.45rem + 1.3vw, 3rem);
+            line-height: 1;
+            color: #6f522d;
+            text-transform: uppercase;
+        }
+
+        .visit-copy p {
+            margin: 0 0 22px;
+            color: #6f5a42;
+            max-width: 320px;
+        }
+
+        .visit-img {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .22), rgba(158, 116, 56, .16)),
+                linear-gradient(140deg, #d9bc8e 0%, #f8eedf 24%, #ab8044 62%, #7b592e 100%);
+        }
+
+        .visit-img::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                repeating-linear-gradient(90deg, transparent 0 86px, rgba(255, 248, 236, .18) 86px 89px),
+                repeating-linear-gradient(0deg, transparent 0 94px, rgba(255, 248, 236, .12) 94px 96px);
+        }
+
+        .visit-ph {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: calc(100% - 32px);
+            text-align: center;
+            padding: 12px 14px;
+            border: 1px dashed rgba(255, 248, 227, .72);
+            background: rgba(95, 61, 17, .18);
+            color: rgba(255, 248, 236, .95);
+            font-family: var(--font-display);
+            font-size: 1.55rem;
+            line-height: 1.1;
+        }
+
+        /* ─── GALLERY ─── */
+        .gallery {
+            padding: 4px 0 16px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr) 1.2fr;
+            gap: 10px;
+        }
+
+        .g-card {
+            position: relative;
+            min-height: 162px;
+            overflow: hidden;
+            background: linear-gradient(145deg, #b78746 0%, #f0e0c7 46%, #90652f 100%);
+        }
+
+        .g-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 26% 24%, rgba(255, 232, 184, .42) 0 18%, transparent 19%),
+                radial-gradient(circle at 72% 54%, rgba(120, 66, 15, .22) 0 20%, transparent 21%),
+                radial-gradient(circle at 42% 78%, rgba(255, 221, 164, .25) 0 18%, transparent 19%);
+        }
+
+        .g-ph {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            color: rgba(255, 248, 236, .9);
+            font-family: var(--font-display);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .g-ph span {
+            padding: 7px 10px;
+            border: 1px dashed rgba(255, 248, 227, .6);
+            background: rgba(80, 44, 6, .16);
+            font-size: 1.08rem;
+            line-height: 1.1;
+            display: block;
+        }
+
+        .social-panel {
+            min-height: 162px;
+            background: rgba(255, 251, 246, .84);
+            border: 1px solid rgba(172, 139, 92, .12);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 18px;
+            gap: 10px;
+        }
+
+        .social-panel h3 {
+            margin: 0;
+            font-family: var(--font-display);
+            font-weight: 500;
+            color: #6f522d;
+            font-size: 1.55rem;
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        .social-panel p {
+            margin: 0;
+            font-size: .9rem;
+            color: #7d6850;
+        }
+
+        .ig-icon {
+            width: 34px;
+            height: 34px;
+            border: 1px solid #b5893b;
+            border-radius: 9px;
+            display: grid;
+            place-items: center;
+            color: #b5893b;
+            font-weight: 700;
+        }
+
+        /* ─── CTA STRIP ─── */
+        .cta-strip {
+            text-align: center;
+            padding: 8px 0 18px;
+        }
+
+        .cta-strip h2 {
+            margin: 0 0 18px;
+            font-family: var(--font-display);
+            font-weight: 500;
+            font-size: clamp(2.1rem, 1.5rem + 1.5vw, 3.2rem);
+            line-height: 1.02;
+            color: #6d512d;
+            text-transform: uppercase;
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            padding: 18px 0 10px;
+            background: linear-gradient(180deg, #fffdfa 0%, #fbf4e8 100%);
+            border-top: 1px solid rgba(172, 139, 92, .14);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.1fr repeat(4, 1fr);
+            gap: 14px;
+            align-items: center;
+            padding-bottom: 16px;
+        }
+
+        .f-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0 10px 16px;
+            border-left: 1px solid rgba(172, 139, 92, .16);
+        }
+
+        .f-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid rgba(172, 139, 92, .24);
+            display: grid;
+            place-items: center;
+            color: #b78a36;
+            flex: 0 0 34px;
+        }
+
+        .f-box strong {
+            display: block;
+            font-size: .77rem;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: #7a5d34;
+            margin-bottom: 2px;
+        }
+
+        .f-box span,
+        .f-box a {
+            font-size: .9rem;
+            color: #6f5b43;
+            line-height: 1.45;
+        }
+
+        .follow-row {
+            display: flex;
+            gap: 9px;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .social-mini {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgba(172, 139, 92, .24);
+            display: grid;
+            place-items: center;
+            color: #b78a36;
+            font-size: .75rem;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: .79rem;
+            color: #8b755a;
+            padding-top: 10px;
+            border-top: 1px solid rgba(172, 139, 92, .12);
+            letter-spacing: .04em;
+            text-transform: uppercase;
+        }
+
+        /* ─── SCROLL REVEAL ─── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+        }
+
+        .reveal.visible {
+            animation: fadeUp .55s cubic-bezier(.16, 1, .3, 1) both;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media(max-width:1120px) {
+            .header-row {
+                grid-template-columns: 1fr;
+                padding: 14px 0;
+                text-align: center;
+            }
+
+            .logo {
+                align-items: center;
+            }
+
+            .header-actions {
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-grid,
+            .heritage-grid,
+            .ring-grid,
+            .visit-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-copy {
+                padding: 56px 0 24px;
+            }
+
+            .hero-visual {
+                padding-top: 0;
+            }
+
+            .trust-grid,
+            .why-grid,
+            .coll-grid,
+            .footer-grid,
+            .gallery-grid,
+            .testi-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .social-panel {
+                grid-column: span 3;
+            }
+
+            .testi-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-arr {
+                display: none;
+            }
+        }
+
+        @media(max-width:700px) {
+            .hero-grid {
+                min-height: auto;
+            }
+
+            .hero-scene {
+                min-height: 340px;
+            }
+
+            .fabric {
+                width: 95%;
+                height: 290px;
+                right: 6px;
+                top: 20px;
+            }
+
+            .hero-ph {
+                right: 14px;
+                left: 14px;
+                width: auto;
+                top: 72px;
+                height: 170px;
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+
+            .pedestal {
+                width: calc(100% - 20px);
+                right: 10px;
+                height: 88px;
+            }
+
+            .sparkles {
+                left: 6px;
+                top: 28px;
+                transform: scale(.7);
+            }
+
+            .hero-copy h1 {
+                max-width: 100%;
+            }
+
+            .hero-copy p {
+                max-width: 100%;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .trust-grid,
+            .why-grid,
+            .coll-grid,
+            .testi-grid,
+            .footer-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-item,
+            .feat-card {
+                border-right: none;
+                border-bottom: 1px solid rgba(172, 139, 92, .14);
+            }
+
+            .trust-item:last-child,
+            .feat-card:last-child {
+                border-bottom: none;
+            }
+
+            .heritage-copy {
+                padding: 32px 16px;
+            }
+
+            .ring-grid {
+                min-height: auto;
+            }
+
+            .ring-visual {
+                min-height: 280px;
+            }
+
+            .ring-ph {
+                font-size: 1.1rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .social-panel {
+                grid-column: auto;
+            }
+
+            .f-box {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-primary,
+            .btn-secondary,
+            .btn-ghost {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="site-header">
+        <div class="container header-row">
+            <a href="#home" class="logo" aria-label="Chandralekha Jewellers home">
+                <svg class="logo-mark" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+                    <path
+                        d="M32 4c3 8 9 11 15 14-4 0-7-1-10-3 1 4 4 8 8 11-5-1-9-4-13-8-1 5-1 10 0 14-1-1-2-1-3 0 1-4 1-9 0-14-4 4-8 7-13 8 4-3 7-7 8-11-3 2-6 3-10 3 6-3 12-6 15-14 1-2 2-2 3 0Z"
+                        stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="logo-name">Chandralekha</span>
+                <span class="logo-tag">Jewellers</span>
+                <span class="logo-since">Since 1994</span>
+            </a>
+
+            <nav class="main-nav" aria-label="Primary navigation">
+                <a href="#home" class="active">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">About Us</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="btn-primary" href="#appointment">
+                    <span class="icon-sq" aria-hidden="true">☐</span>Book Appointment →
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="content">
+
+        <!-- ═══ HERO ═══ -->
+        <section class="hero" id="home" aria-label="Hero section">
+            <div class="container hero-grid">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Chandralekha Jewellers • Since 1994</p>
+                    <h1>Jewellery Crafted To Become Family Heritage</h1>
+                    <div class="mini-ornament" aria-hidden="true">
+                        <div class="dot"></div>
+                    </div>
+                    <p>Timeless gold, precious gemstones, and handcrafted collections created to be cherished for
+                        generations.</p>
+                    <div class="hero-actions">
+                        <a class="btn-primary" href="#collections">Explore Collections →</a>
+                        <a class="btn-secondary" href="#appointment">Book Store Visit <span class="icon-sq"
+                                aria-hidden="true">☐</span></a>
+                    </div>
+                </div>
+                <div class="hero-visual reveal" aria-label="Hero jewellery visual">
+                    <div class="hero-scene">
+                        <div class="sparkles" aria-hidden="true"></div>
+                        <div class="fabric" aria-hidden="true"></div>
+                        <div class="hero-ph ph" role="img"
+                            aria-label="Landing page premium antique necklace image placeholder">
+                            <div class="ph-label">landing page premium antique necklace image</div>
+                        </div>
+                        <div class="pedestal" aria-hidden="true"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ TRUST BAR ═══ -->
+        <section class="trust-bar" aria-label="Trust highlights">
+            <div class="container trust-grid">
+                <div class="trust-item reveal">
+                    <div class="t-icon" aria-hidden="true">◌</div>
+                    <div><strong>Since 1994</strong><span>Three decades of trust</span></div>
+                </div>
+                <div class="trust-item reveal">
+                    <div class="t-icon" aria-hidden="true">△</div>
+                    <div><strong>BIS Hallmarked Gold</strong><span>Purity certified</span></div>
+                </div>
+                <div class="trust-item reveal">
+                    <div class="t-icon" aria-hidden="true">◇</div>
+                    <div><strong>Certified Gemstones</strong><span>Authentic brilliance</span></div>
+                </div>
+                <div class="trust-item reveal">
+                    <div class="t-icon" aria-hidden="true">◎</div>
+                    <div><strong>Thousands Of Happy Families</strong><span>Celebrated moments</span></div>
+                </div>
+                <div class="trust-item reveal">
+                    <div class="t-icon" aria-hidden="true">⌂</div>
+                    <div><strong>Trusted Across Generations</strong><span>Built on relationships</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ HERITAGE ═══ -->
+        <section class="heritage" id="about">
+            <div class="container heritage-grid">
+                <div class="store-img reveal" role="img" aria-label="Chandralekha showroom interior image placeholder">
+                    <div class="grid-overlay" aria-hidden="true"></div>
+                    <div class="img-tag">showroom interior image placeholder</div>
+                </div>
+                <div class="heritage-copy reveal">
+                    <p class="eyebrow">Our Heritage</p>
+                    <h2>Three Decades Of Trust</h2>
+                    <p>For over 30 years, Chandralekha Jewellers has been a part of life's most precious moments. Built
+                        on trust, transparency and timeless craftsmanship, we continue to create more than just
+                        jewellery — we create memories that last generations.</p>
+                    <div class="script">A Legacy Of Purity, Trust &amp; Craftsmanship</div>
+                    <a class="btn-ghost" href="#contact">Know Our Story →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ COLLECTIONS ═══ -->
+        <section class="collections" id="collections">
+            <div class="container">
+                <div class="divider-title">
+                    <h2>Our Signature Collections</h2>
+                    <div class="ornament" aria-hidden="true">
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="coll-grid">
+                    <article class="coll-card reveal">
+                        <div class="tex" aria-hidden="true"></div>
+                        <div class="coll-ph"><span>antique gold collection image</span></div>
+                        <div class="coll-name">Antique Gold Collection</div>
+                    </article>
+                    <article class="coll-card reveal"
+                        style="background:linear-gradient(145deg,#a17237 0%,#ead4b2 44%,#7f5b32 100%);">
+                        <div class="tex" aria-hidden="true"></div>
+                        <div class="coll-ph"><span>bridal collection necklace image</span></div>
+                        <div class="coll-name">Bridal Collections</div>
+                    </article>
+                    <article class="coll-card reveal"
+                        style="background:linear-gradient(145deg,#ceb188 0%,#f3e7d5 46%,#98764d 100%);">
+                        <div class="tex" aria-hidden="true"></div>
+                        <div class="coll-ph"><span>daily elegance layered chain image</span></div>
+                        <div class="coll-name">Daily Elegance</div>
+                    </article>
+                    <article class="coll-card reveal"
+                        style="background:linear-gradient(145deg,#c59a59 0%,#f5e9d8 44%,#906734 100%);">
+                        <div class="tex" aria-hidden="true"></div>
+                        <div class="coll-ph"><span>red stone ring image</span></div>
+                        <div class="coll-name">Gemstone Collection</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ WHY US ═══ -->
+        <section class="why-us" id="why-us">
+            <div class="container">
+                <div class="divider-title">
+                    <h2>Why Families Choose Chandralekha</h2>
+                    <div class="ornament" aria-hidden="true">
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="why-grid">
+                    <article class="feat-card reveal">
+                        <div class="f-icon" aria-hidden="true">⌂</div>
+                        <strong>Authenticity</strong>
+                        <p>Every piece is BIS hallmarked and quality-checked to ensure you receive only the best.</p>
+                    </article>
+                    <article class="feat-card reveal">
+                        <div class="f-icon" aria-hidden="true">✦</div>
+                        <strong>Craftsmanship</strong>
+                        <p>Handcrafted by skilled artisans with attention to detail passed down through generations.</p>
+                    </article>
+                    <article class="feat-card reveal">
+                        <div class="f-icon" aria-hidden="true">◎</div>
+                        <strong>Personal Guidance</strong>
+                        <p>We understand jewellery is emotional. Our experts guide you with honesty and care.</p>
+                    </article>
+                    <article class="feat-card reveal">
+                        <div class="f-icon" aria-hidden="true">⌘</div>
+                        <strong>Transparent Pricing</strong>
+                        <p>No hidden charges. No surprises. Just pure jewellery and complete trust.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ RING HIGHLIGHT ═══ -->
+        <section class="ring-section" aria-labelledby="ring-title">
+            <div class="container ring-grid">
+                <div class="ring-copy reveal">
+                    <h2 id="ring-title">Sri Lankan Natural Garnet Ring</h2>
+                    <ul class="details">
+                        <li><span class="bull">◈</span>22K Gold</li>
+                        <li><span class="bull">◈</span>4.000 Grams</li>
+                        <li><span class="bull">◈</span>Natural Red Garnet</li>
+                        <li><span class="bull">◈</span>Handcrafted Setting</li>
+                        <li><span class="bull">◈</span>Certified Stone</li>
+                    </ul>
+                    <a class="btn-primary" href="#gallery">View Details →</a>
+                </div>
+                <div class="ring-visual reveal" role="img"
+                    aria-label="Sri Lankan natural garnet ring product image placeholder">
+                    <div class="ring-spk" aria-hidden="true"></div>
+                    <div class="ring-box" aria-hidden="true"></div>
+                    <div class="ring-ph">sri lankan natural garnet ring product image</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ TESTIMONIALS ═══ -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="divider-title">
+                    <h2>What Our Customers Say</h2>
+                    <div class="ornament" aria-hidden="true">
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="testi-wrap">
+                    <button class="nav-arr" aria-label="Previous testimonial">‹</button>
+                    <div class="testi-grid">
+                        <article class="testi-card reveal">
+                            <div class="stars">★★★★★</div>
+                            <p>"Bought my wedding jewellery here 18 years ago. Still our family's first choice."</p>
+                            <small>– Nimal &amp; Family</small>
+                        </article>
+                        <article class="testi-card reveal">
+                            <div class="stars">★★★★★</div>
+                            <p>"Exceptional service, honest guidance and beautiful craftsmanship."</p>
+                            <small>– Priyanka D.</small>
+                        </article>
+                        <article class="testi-card reveal">
+                            <div class="stars">★★★★★</div>
+                            <p>"A place where trust matters more than sales. Truly recommendable."</p>
+                            <small>– Suresh K.</small>
+                        </article>
+                    </div>
+                    <button class="nav-arr" aria-label="Next testimonial">›</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ VISIT / APPOINTMENT ═══ -->
+        <section class="visit-section" id="appointment">
+            <div class="container visit-grid">
+                <div class="visit-copy reveal">
+                    <h2>Visit Our Showroom</h2>
+                    <p>Experience every piece in person with personalized assistance.</p>
+                    <a class="btn-secondary" href="#contact">Book Appointment <span class="icon-sq"
+                            aria-hidden="true">☐</span></a>
+                </div>
+                <div class="visit-img reveal" role="img" aria-label="Showroom visit luxury interior image placeholder">
+                    <div class="visit-ph">showroom visit luxury interior image</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ GALLERY ═══ -->
+        <section class="gallery" id="gallery">
+            <div class="container">
+                <div class="divider-title">
+                    <h2>A Glimpse Of Our Creations</h2>
+                    <div class="ornament" aria-hidden="true">
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="g-card reveal">
+                        <div class="g-ph"><span>antique necklace close-up image</span></div>
+                    </div>
+                    <div class="g-card reveal">
+                        <div class="g-ph"><span>gold bangle pair image</span></div>
+                    </div>
+                    <div class="g-card reveal">
+                        <div class="g-ph"><span>premium pendant set image</span></div>
+                    </div>
+                    <div class="g-card reveal">
+                        <div class="g-ph"><span>bridal necklace pendant image</span></div>
+                    </div>
+                    <div class="g-card reveal">
+                        <div class="g-ph"><span>diamond ring display image</span></div>
+                    </div>
+                    <div class="g-card reveal">
+                        <div class="g-ph"><span>temple earrings image</span></div>
+                    </div>
+                    <aside class="social-panel reveal">
+                        <h3>Follow Our Journey</h3>
+                        <p>@chandralekhajewellers</p>
+                        <div class="ig-icon" aria-hidden="true">ig</div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CTA STRIP ═══ -->
+        <section class="cta-strip">
+            <div class="container reveal">
+                <h2>Find The Piece That Tells Your Story</h2>
+                <div style="display:flex;justify-content:center;">
+                    <a class="btn-primary" href="#collections" style="min-width:240px;">Explore Collections →</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <a href="#home" class="logo" aria-label="Chandralekha Jewellers footer logo">
+                    <svg class="logo-mark" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+                        <path
+                            d="M32 4c3 8 9 11 15 14-4 0-7-1-10-3 1 4 4 8 8 11-5-1-9-4-13-8-1 5-1 10 0 14-1-1-2-1-3 0 1-4 1-9 0-14-4 4-8 7-13 8 4-3 7-7 8-11-3 2-6 3-10 3 6-3 12-6 15-14 1-2 2-2 3 0Z"
+                            stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="logo-name">Chandralekha</span>
+                    <span class="logo-tag">Jewellers</span>
+                    <span class="logo-since">Since 1994</span>
+                </a>
+                <div class="f-box">
+                    <div class="f-icon" aria-hidden="true">✆</div>
+                    <div><strong>Phone:</strong><span>98422 55501 / 99442 55501</span></div>
+                </div>
+                <div class="f-box">
+                    <div class="f-icon" aria-hidden="true">✉</div>
+                    <div><strong>Email:</strong><a href="mailto:mukesh.clj@gmail.com">mukesh.clj@gmail.com</a></div>
+                </div>
+                <div class="f-box">
+                    <div class="f-icon" aria-hidden="true">⌖</div>
+                    <div><strong>Address:</strong><span>No. 123, Main Street,<br>Jaffna, Sri Lanka.</span></div>
+                </div>
+                <div class="f-box">
+                    <div>
+                        <strong>Follow Us</strong>
+                        <div class="follow-row">
+                            <span class="social-mini" aria-label="Facebook">f</span>
+                            <span class="social-mini" aria-label="Instagram">ig</span>
+                            <span class="social-mini" aria-label="WhatsApp">w</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">© 2025 Chandralekha Jewellers. All Rights Reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const els = document.querySelectorAll('.reveal');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.12 });
+        els.forEach(el => obs.observe(el));
+
+        // Active nav on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.main-nav a');
+        window.addEventListener('scroll', () => {
+            let cur = '';
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === '#' + cur) a.classList.add('active');
+            });
+        }, { passive: true });
+    </script>
+</body>
+
+</html>
