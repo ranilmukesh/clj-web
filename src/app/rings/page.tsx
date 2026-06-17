@@ -1,5 +1,3 @@
-
-import { useEffect } from "react";
 import ProductCard from "@/components/ProductCard";
 import {
   Accordion,
@@ -8,8 +6,18 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { BadgeCheck, Heart, Ruler, Scale, Sparkles, Shield, Wrench } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Buy BIS 916 Gold Rings in Coimbatore | Handcrafted Designs | Chandralekha Jewels",
+  description: "Shop BIS 916 Hallmarked gold rings in Coimbatore. Discover handcrafted designs for men & women. Transparent pricing, 35+ years trust. Buy gold rings online or visit us!",
+  openGraph: {
+    title: "Handcrafted BIS 916 Gold Rings in Coimbatore | Chandralekha Jewels",
+    description: "Discover and buy exquisite BIS 916 Hallmarked gold rings in Coimbatore. Chandralekha Jewels offers handcrafted designs for every occasion with transparency and trust. Shop online or visit us.",
+  }
+};
 
 const ringProducts = [
     { id: 101, name: "22KT Traditional Gold Band Ring", price: "₹45,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Gold+Band" },
@@ -46,24 +54,6 @@ const faqData = [
 ];
 
 const Rings = () => {
-    useEffect(() => {
-        document.title = "Buy BIS 916 Gold Rings in Coimbatore | Handcrafted Designs | Chandralekha Jewels";
-
-        const setMetaTag = (attrName, attrValue, content) => {
-            let element = document.querySelector(`meta[${attrName}='${attrValue}']`);
-            if (!element) {
-                element = document.createElement('meta');
-                element.setAttribute(attrName, attrValue);
-                document.head.appendChild(element);
-            }
-            element.setAttribute('content', content);
-        };
-        
-        setMetaTag('name', 'description', 'Shop BIS 916 Hallmarked gold rings in Coimbatore. Discover handcrafted designs for men & women. Transparent pricing, 35+ years trust. Buy gold rings online or visit us!');
-        setMetaTag('property', 'og:title', 'Handcrafted BIS 916 Gold Rings in Coimbatore | Chandralekha Jewels');
-        setMetaTag('property', 'og:description', 'Discover and buy exquisite BIS 916 Hallmarked gold rings in Coimbatore. Chandralekha Jewels offers handcrafted designs for every occasion with transparency and trust. Shop online or visit us.');
-    }, []);
-
     return (
         <div className="bg-background text-primary">
             <div className="container mx-auto py-12 px-4 md:px-0">
@@ -154,7 +144,7 @@ const Rings = () => {
                         Experience our collection firsthand and receive personalized service from our experts. We invite you to our showroom to explore the timeless elegance of Chandralekha Jewels.
                     </p>
                     <Button asChild size="lg">
-                        <Link to="/contact">Get Directions</Link>
+                        <Link href="/contact">Get Directions</Link>
                     </Button>
                 </section>
             </div>

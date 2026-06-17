@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -15,10 +15,10 @@ const Hero = () => {
           </p>
           <div className="mt-8 flex gap-4 justify-center md:justify-start">
             <Button asChild size="lg">
-              <Link to="/collections">Shop Collections</Link>
+              <Link href="/collections">Shop Collections</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link to="/about">Our Story</Link>
+              <Link href="/about">Our Story</Link>
             </Button>
           </div>
         </div>

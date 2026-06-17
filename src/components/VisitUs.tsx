@@ -1,6 +1,6 @@
 
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { MapPin } from "lucide-react";
 
 const VisitUs = () => {
@@ -14,7 +14,7 @@ const VisitUs = () => {
           Experience the artistry and elegance of Chandralekha Jewels in person. Our experts are here to guide you through our collections and help you find the perfect piece.
         </p>
         <Button asChild size="lg" variant="secondary">
-          <Link to="/contact">
+          <Link href="/contact">
             <MapPin className="mr-2 h-5 w-5" />
             Get Directions & Contact Info
           </Link>
