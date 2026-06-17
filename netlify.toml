@@ -1,0 +1,40 @@
+# Global build configurations
+[build]
+  # Vite compiles your site into the "dist" directory by default
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Specifying a modern LTS Node version helps ensure build consistency
+  NODE_VERSION = "20"
+  # Speeds up dependency installation by skipping unnecessary security audits and funding messages
+  NPM_FLAGS = "--no-audit --no-fund"
+
+# SPA Redirect Rule
+# This is required for react-router-dom. It tells Netlify to redirect all 
+# route requests (like /rings or /about) to index.html so your React router 
+# can handle the rendering, avoiding 404 errors on page refreshes.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Cache-control for static assets
+# Vite hashes built files inside the assets directory (e.g., index-Ch89xL1p.js).
+# We can safely cache these files indefinitely to speed up subsequent visits.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Header configurations for top-level documents (index.html, robots.txt, etc.)
+# We prevent caching here so users always fetch the newest index.html immediately after a deployment.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    # Basic security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Content-Security-Policy = "frame-ancestors 'self';"
