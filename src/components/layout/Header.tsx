@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Gem } from "lucide-react";
 
 const Header = () => {
   return (
     <header className="bg-background/80 backdrop-blur-sm sticky top-0 z-50 border-b">
-      <div className="container mx-auto flex h-16 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Gem className="h-6 w-6 text-secondary" />
-          <span className="font-bold text-lg text-primary">Chandralekha Jewels</span>
+      <div className="container mx-auto flex h-32 items-center justify-between">
+        <Link href="/" className="flex items-center">
+          <img src="/clj-logo-removed-bg.png" alt="Chandralekha Jewels Logo" className="h-[210px] w-[210px] object-contain translate-y-3" />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link href="/collections" className="transition-colors hover:text-secondary">Collections</Link>
