@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: {
@@ -22,7 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <h3 className="font-semibold text-lg">{product.name}</h3>
         <p className="text-secondary font-bold mt-1">{product.price}</p>
         <Button asChild className="mt-4 w-full" variant="outline">
-          <Link to={`/products/${product.id}`}>View Details</Link>
+          <Link href={`/products/${product.id}`}>View Details</Link>
         </Button>
       </CardFooter>
     </Card>

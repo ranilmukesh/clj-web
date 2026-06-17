@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -54,9 +54,9 @@ const About = () => {
             In an era of mass production, we stand by the art of the handmade. We guarantee 100% BIS 916 hallmarked purity in every jewel and offer it at wholesale pricing, providing you with unmatched value and complete transparency.
            </p>
            <div className="flex gap-4 justify-center">
-             <Link to="/collections" className="text-primary hover:underline">Explore Our Collections</Link>
+             <Link href="/collections" className="text-primary hover:underline">Explore Our Collections</Link>
              <span className="text-muted-foreground">|</span>
-             <Link to="/contact" className="text-primary hover:underline">Contact Us for a Custom Design</Link>
+             <Link href="/contact" className="text-primary hover:underline">Contact Us for a Custom Design</Link>
            </div>
         </div>
       </div>

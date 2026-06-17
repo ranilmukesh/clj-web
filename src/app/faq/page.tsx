@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -56,7 +56,7 @@ const Faq = () => {
         </div>
         <div className="text-center mt-12">
             <p className="text-muted-foreground">Have more questions? We're happy to help.</p>
-            <Link to="/contact" className="text-secondary font-bold hover:underline">Contact Us</Link>
+            <Link href="/contact" className="text-secondary font-bold hover:underline">Contact Us</Link>
         </div>
       </div>
     </div>

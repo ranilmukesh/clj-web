@@ -1,6 +1,6 @@
 
 import { Button } from "./ui/button";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const OurCommitment = () => {
   return (
@@ -14,7 +14,7 @@ const OurCommitment = () => {
             Your trust is our most precious asset. That's why every piece of gold jewellery at Chandralekha Jewels is BIS 916 Hallmarked, guaranteeing its purity. We are also compliant with HUID (Hallmark Unique Identification), a government-mandated system that ensures complete transparency and traceability for every item you purchase. When you buy from us, you buy with confidence.
           </p>
           <Button asChild variant="outline">
-            <Link to="/faq">Learn More About Hallmarking</Link>
+            <Link href="/faq">Learn More About Hallmarking</Link>
           </Button>
         </div>
         <div>
