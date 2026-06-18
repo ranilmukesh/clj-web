@@ -69,7 +69,9 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
       {/* Inject Product JSON-LD Schema */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema).replace(/</g, '\\u003c'),
+        }}
       />
       <h1 className="text-4xl font-bold mb-4">Product {resolvedParams.id}</h1>
       <p className="text-lg text-muted-foreground">Product details coming soon.</p>

@@ -51,7 +51,9 @@ export default function Home() {
     <div>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessSchema).replace(/</g, '\\u003c'),
+        }}
       />
       <Hero />
       <WhyChooseUs />

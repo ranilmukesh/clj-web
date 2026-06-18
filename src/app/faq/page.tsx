@@ -40,7 +40,7 @@ const Faq = () => {
       "name": faq.question,
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": faq.answer.replace(/<[^>]*>?/gm, '') // Strips HTML tags for clean JSON
+        "text": faq.answer.replace(/<[^>]*>/g, '') // Strips HTML tags for clean JSON
       }
     }))
   };
@@ -50,7 +50,9 @@ const Faq = () => {
       {/* Inject JSON-LD Schema for AI Crawlers */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c'),
+        }}
       />
       <div className="container mx-auto py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center mb-12">
