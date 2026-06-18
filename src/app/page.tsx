@@ -32,9 +32,18 @@ export default function Home() {
     "description": "Premium jewelry store in Coimbatore offering BIS 916 Hallmarked gold and certified diamonds with 35+ years of trust.",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "10:00",
-      "closes": "20:00"
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "09:00",
+      "closes": "23:00"
+    },
+    "sameAs": [
+      "https://www.instagram.com/chandralekhajewellers",
+      "https://www.facebook.com/chandralekhajewellers"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9281",
+      "reviewCount": "85991"
     }
   };
 

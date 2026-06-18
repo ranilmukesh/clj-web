@@ -28,3 +28,6 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer-when-downgrade"
     Content-Security-Policy = "frame-ancestors 'self';"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
