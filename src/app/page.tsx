@@ -12,8 +12,38 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  // This JSON-LD acts as a direct database feed to Answer Engines (AEO)
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Chandralekha Jewels",
+    "image": "https://chandralekhajewels.netlify.app/clj-logo-white-bg.png",
+    "@id": "https://chandralekhajewels.netlify.app",
+    "url": "https://chandralekhajewels.netlify.app",
+    "telephone": "+919842255501",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123, Gold Street, Big Bazaar",
+      "addressLocality": "Coimbatore",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "641001",
+      "addressCountry": "IN"
+    },
+    "description": "Premium jewelry store in Coimbatore offering BIS 916 Hallmarked gold and certified diamonds with 35+ years of trust.",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    }
+  };
+
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <Hero />
       <WhyChooseUs />
       <FeaturedProducts />
