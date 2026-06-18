@@ -31,8 +31,29 @@ const faqs = [
 ];
 
 const Faq = () => {
+  // AEO: Generate FAQ Schema automatically from the faqs array
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer.replace(/<[^>]*>/g, '') // Strips HTML tags for clean JSON
+      }
+    }))
+  };
+
   return (
     <div className="bg-dark-vanilla/30">
+      {/* Inject JSON-LD Schema for AI Crawlers */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c'),
+        }}
+      />
       <div className="container mx-auto py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6">

@@ -2,13 +2,13 @@
 [build]
   # Next.js static export compiles your site into the "out" directory
   command = "npm run build"
-  publish = "out"
+  publish = ".next"
 
 [build.environment]
   # Specifying a modern LTS Node version helps ensure build consistency
   NODE_VERSION = "20"
   # Speeds up dependency installation by skipping unnecessary security audits and funding messages
-  NPM_FLAGS = "--no-audit --no-fund"
+  NPM_FLAGS = "--no-audit --no-fund --legacy-peer-deps"
 
 # Cache-control for Next.js static assets
 # Next.js hashes built files inside the _next/static directory.
@@ -29,3 +29,6 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "no-referrer-when-downgrade"
     Content-Security-Policy = "frame-ancestors 'self';"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
