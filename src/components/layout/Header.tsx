@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="bg-background/80 backdrop-blur-sm sticky top-0 z-50 border-b">
       <div className="container mx-auto flex h-32 items-center justify-between">
@@ -16,7 +19,7 @@ const Header = () => {
             alt="Chandralekha Jewels Logo"
             width={210}
             height={210}
-            className="h-[210px] w-[210px] object-contain translate-y-3"
+            className="h-48 w-48 object-contain"
             priority
           />
         </Link>
@@ -33,7 +36,7 @@ const Header = () => {
             <Button variant="ghost" size="sm">Sign In</Button>
             <Button variant="secondary" size="sm">Sign Up</Button>
           </div>
-          <Sheet>
+          <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon" className="md:hidden">
                 <Menu className="h-5 w-5" />
@@ -42,12 +45,12 @@ const Header = () => {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium">
-                <Link href="/collections" className="hover:text-secondary">Collections</Link>
-                <Link href="/rings" className="hover:text-secondary">Rings</Link>
-                <Link href="/necklaces" className="hover:text-secondary">Necklaces</Link>
-                <Link href="/about" className="hover:text-secondary">About Us</Link>
-                <Link href="/contact" className="hover:text-secondary">Contact</Link>
-                <Link href="/faq" className="hover:text-secondary">FAQ</Link>
+                <Link href="/collections" className="hover:text-secondary" onClick={() => setOpen(false)}>Collections</Link>
+                <Link href="/rings" className="hover:text-secondary" onClick={() => setOpen(false)}>Rings</Link>
+                <Link href="/necklaces" className="hover:text-secondary" onClick={() => setOpen(false)}>Necklaces</Link>
+                <Link href="/about" className="hover:text-secondary" onClick={() => setOpen(false)}>About Us</Link>
+                <Link href="/contact" className="hover:text-secondary" onClick={() => setOpen(false)}>Contact</Link>
+                <Link href="/faq" className="hover:text-secondary" onClick={() => setOpen(false)}>FAQ</Link>
               </nav>
             </SheetContent>
           </Sheet>
