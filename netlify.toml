@@ -2,6 +2,7 @@
 [build]
   # Next.js static export compiles your site into the "out" directory
   command = "npm run build"
+  publish = ".next"
 
 [build.environment]
   # Specifying a modern LTS Node version helps ensure build consistency
