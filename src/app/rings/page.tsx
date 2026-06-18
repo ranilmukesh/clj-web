@@ -9,6 +9,7 @@ import { BadgeCheck, Heart, Ruler, Scale, Sparkles, Shield, Wrench } from "lucid
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
+import { ringProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
   title: "Buy BIS 916 Gold Rings in Coimbatore | Handcrafted Designs | Chandralekha Jewels",
@@ -19,20 +20,6 @@ export const metadata: Metadata = {
   }
 };
 
-const ringProducts = [
-    { id: 101, name: "22KT Traditional Gold Band Ring", price: "₹45,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Gold+Band" },
-    { id: 102, name: "Ornate Diamond Solitaire Engagement Ring", price: "₹1,20,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Solitaire" },
-    { id: 103, name: "Classic Signet Gold Ring for Men", price: "₹65,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Signet+Ring" },
-    { id: 104, name: "Emerald & 22KT Gold Cocktail Ring", price: "₹88,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Emerald+Ring" },
-    { id: 105, name: "Lightweight Gold Ring for Daily Wear", price: "₹18,500", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Daily+Ring" },
-    { id: 106, name: "Elegant Rose Gold Couple Wedding Bands", price: "₹95,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Couple+Bands" },
-    { id: 107, name: "Antique Finish Temple Gold Ring", price: "₹72,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Temple+Ring" },
-    { id: 108, name: "Delicate Pearl & Gold Ring for Women", price: "₹32,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Pearl+Ring" },
-    { id: 109, name: "Modern Geometric Design Gold Ring", price: "₹25,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Geometric" },
-    { id: 110, name: "Diamond Studded Gold Band for Men", price: "₹1,10,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Men's+Diamond" },
-    { id: 111, name: "Bridal Floral Diamond Cluster Ring", price: "₹1,50,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Bridal+Ring" },
-    { id: 112, name: "South Indian Vanki Ring with Ruby Stones", price: "₹78,000", image: "https://placehold.co/400x400/DDC6A4/2C5F3E?text=Vanki+Ring" },
-];
 
 const faqData = [
     {
