@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import { popularSearches } from "./footerData";
 
@@ -9,7 +10,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <Link href="/" className="flex items-center mb-4">
-              <img src="/clj-logo-removed-bg.png" alt="Chandralekha Jewels Logo" className="h-[210px] w-[210px] object-contain" />
+              <Image
+                src="/clj-logo-removed-bg.png"
+                alt="Chandralekha Jewels Logo"
+                width={210}
+                height={210}
+                className="h-[210px] w-[210px] object-contain"
+              />
             </Link>
             <p className="text-muted-foreground text-sm">Exquisite gold jewelry, crafted with passion in Coimbatore since 1989. Your trusted destination to buy BIS 916 Hallmarked gold jewels.</p>
           </div>

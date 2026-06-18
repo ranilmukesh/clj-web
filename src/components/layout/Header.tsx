@@ -1,14 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="bg-background/80 backdrop-blur-sm sticky top-0 z-50 border-b">
       <div className="container mx-auto flex h-32 items-center justify-between">
         <Link href="/" className="flex items-center">
-          <img src="/clj-logo-removed-bg.png" alt="Chandralekha Jewels Logo" className="h-[210px] w-[210px] object-contain translate-y-3" />
+          <Image
+            src="/clj-logo-removed-bg.png"
+            alt="Chandralekha Jewels Logo"
+            width={210}
+            height={210}
+            className="h-48 w-48 object-contain"
+            priority
+          />
         </Link>
         <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
           <Link href="/collections" className="transition-colors hover:text-secondary">Collections</Link>
@@ -19,8 +32,28 @@ const Header = () => {
           <Link href="/faq" className="transition-colors hover:text-secondary">FAQ</Link>
         </nav>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm">Sign In</Button>
-          <Button variant="secondary" size="sm">Sign Up</Button>
+          <div className="hidden md:flex gap-4">
+            <Button variant="ghost" size="sm">Sign In</Button>
+            <Button variant="secondary" size="sm">Sign Up</Button>
+          </div>
+          <Sheet open={open} onOpenChange={setOpen}>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon" className="md:hidden">
+                <Menu className="h-5 w-5" />
+                <span className="sr-only">Toggle navigation menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right">
+              <nav className="grid gap-6 text-lg font-medium">
+                <Link href="/collections" className="hover:text-secondary" onClick={() => setOpen(false)}>Collections</Link>
+                <Link href="/rings" className="hover:text-secondary" onClick={() => setOpen(false)}>Rings</Link>
+                <Link href="/necklaces" className="hover:text-secondary" onClick={() => setOpen(false)}>Necklaces</Link>
+                <Link href="/about" className="hover:text-secondary" onClick={() => setOpen(false)}>About Us</Link>
+                <Link href="/contact" className="hover:text-secondary" onClick={() => setOpen(false)}>Contact</Link>
+                <Link href="/faq" className="hover:text-secondary" onClick={() => setOpen(false)}>FAQ</Link>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </header>

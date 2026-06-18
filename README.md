@@ -20,11 +20,9 @@ An exquisite showcase web application for **Chandralekha Jewels**, a trusted fam
 
 This project is built using a modern front-end stack:
 
-- **Framework:** [React 18](https://react.dev/)
-- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Framework:** [Next.js App Router](https://nextjs.org/)
 - **Language:** [TypeScript](https://www.typescriptlang.org/)
 - **Styling:** [Tailwind CSS](https://tailwindcss.com/) with [shadcn/ui](https://ui.shadcn.com/)
-- **Routing:** [React Router DOM v6](https://reactrouter.com/)
 - **State & Queries:** [TanStack React Query](https://tanstack.com/query/latest)
 - **Icons:** [Lucide React](https://lucide.dev/)
 
@@ -52,7 +50,7 @@ npm run dev
 The application will be accessible locally at `http://localhost:8080/` (or your configured port).
 
 ### 4. Build for Production
-To generate an optimized build inside the `dist/` directory:
+To generate an optimized static build inside the `out/` directory:
 ```bash
 npm run build
 ```
@@ -64,22 +62,25 @@ npm run build
 ```text
 ├── components.json          # shadcn-ui configuration
 ├── eslint.config.js         # ESLint configuration
-├── netlify.toml             # Netlify build and redirect configurations
+├── netlify.toml             # Netlify build configurations
+├── next-env.d.ts            # Next.js TypeScript environment declarations
+├── next.config.mjs          # Next.js configuration (configured for static export)
 ├── package.json             # Scripts and dependencies
 ├── tailwind.config.ts       # Tailwind theme and styling system
 ├── tsconfig.json            # TypeScript configuration
-├── vite.config.ts           # Vite bundler configurations
-├── public/                  # Static assets (robots.txt, images, etc.)
+├── public/                  # Static assets (robots.txt, images, logos)
 └── src/
+    ├── app/                 # Next.js App Router folders
+    │   ├── globals.css      # Base Tailwind styles and design variables
+    │   ├── layout.tsx       # Root layout with premium loaded Google Fonts
+    │   ├── page.tsx         # Main landing page view
+    │   ├── providers.tsx    # QueryClient and Tooltip providers wrapper
+    │   └── [subpages]       # Subpages (about, rings, necklaces, etc.) & products/[id]
     ├── components/          # Reusable page sections (Hero, FeaturedProducts, WhyChooseUs)
-    │   ├── layout/          # Layout wrappers, Header, and Footer
-    │   └── ui/              # Low-level accessible components (buttons, dialogs, accordions)
+    │   ├── layout/          # Layout wrappers (Header, Footer)
+    │   └── ui/              # Low-level accessible UI components (buttons, sheets, toast)
     ├── hooks/               # Custom React hooks (e.g., useIsMobile)
-    ├── lib/                 # Shared utilities (class merger helper)
-    ├── pages/               # Top-level page views (Index, About, Contact, Rings, etc.)
-    ├── App.tsx              # Main routing and provider wrapper
-    ├── index.css            # Base Tailwind styles and design variables
-    └── main.tsx             # React entry point
+    └── lib/                 # Shared utilities (class merger helper)
 ```
 
 ---
@@ -89,5 +90,5 @@ npm run build
 This project is configured to build and deploy to Netlify using the `netlify.toml` file.
 
 - **Build Command:** `npm run build`
-- **Publish Directory:** `dist`
-- **Routing Rules:** Includes a wildcard redirect (`/* -> /index.html`) to ensure clean URL reloads work on subpages such as `/rings` and `/about`.
+- **Publish Directory:** `out`
+- **Routing Rules:** Static export generates directory-based `index.html` files (e.g., `/rings/index.html`) using `trailingSlash: true`, which Netlify serves correctly on page reloads without needing wildcard redirect rules.
